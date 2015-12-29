@@ -1,0 +1,92 @@
+.if-control {
+	position: relative;
+	min-height: 1em;
+}
+
+.if-control .if-value,
+.if-control .if-input {
+	backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
+}
+
+.if-control .if-value {
+	transition: 0.4s ease-in-out 0s;
+	transform: rotateX(0deg);
+	-webkit-transform: rotateX(0deg);
+
+	min-width: 1em;
+}
+
+.panel-body .if-control .if-value:after {
+	content: '　';
+}
+
+.if-control:focus .if-value,
+.if-control .if-input:focus ~ .if-value {
+	transform: rotateX(-180deg);
+	-webkit-transform: rotateX(-180deg);
+}
+
+.if-control .if-input {
+	transition: 0.4s ease-in-out 0s;
+	transform: rotateX(180deg);
+	-webkit-transform: rotateX(180deg);
+
+	position: absolute;
+
+	width: 100%;
+	height: 100%;
+	padding: 0;
+}
+
+.if-control textarea.if-input,
+td.if-control .if-input {
+	height: 100%;
+}
+
+.if-control:focus .if-input,
+.if-control .if-input:focus {
+	transform: rotateX(0deg);
+	-webkit-transform: rotateX(0deg);
+}
+
+.if-delete {
+	opacity: 0;
+	transition: 0.4s ease-in-out;
+}
+tr.if-form:hover .if-delete,
+.if-delete:hover {
+	opacity: 1;
+}
+
+.if-delete ~ .if-control {
+    margin-right: 25px;
+}
+
+.if-template, .if-hidden {
+	display: none;
+}
+
+.if-control.if-updated {
+	animation: if-updated 1s;
+	-webkit-animation: if-updated 1s;
+}
+
+@keyframes if-updated {
+	from {
+		background-color: yellow;
+	}
+
+	to {
+		background-color: transparent;
+	}
+}
+@-webkit-keyframes if-updated {
+	from {
+		background-color: yellow;
+	}
+
+	to {
+		background-color: transparent;
+	}
+}
